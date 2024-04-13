@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Testing</title>
+    <script type="text/javascript" src="index.js" defer></script>
+    <link type="stylesheet" href="main.css">
+</head>
+
+<body>
+    <script>
+        const main = () => {
+            const primes = [2, 3, 5, 7, 11];
+            let result = doSearch(primes, 11);
+
+            if (result === -1) {
+                console.log("Prime not found in given array")
+            } else {
+                console.log("Found prime at index " + result);
+            }
+        }
+
+        const doSearch = (array, targetValue) => {
+            let min = 0;
+            let max = array.length - 1;
+            let index;
+
+            while (min <= max) {
+                index = Math.floor((min + max) / 2);
+
+                if (array[index] === targetValue) {
+                    return index;
+                }
+                else if (array[index] < targetValue) {
+                    min = index + 1;
+                }
+                else {
+                    max = index - 1;
+                }
+            }
+            return -1;
+        }
+
+        main();
+    </script>
+</body>
+
+</html>
